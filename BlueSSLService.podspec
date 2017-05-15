@@ -1,21 +1,25 @@
 Pod::Spec.new do |s|
-  s.name             = 'SSLService'
+  s.name             = 'BlueSSLService'
   s.version          = '0.12.33'
+  s.module_name      = 'SSLService'
   s.summary          = 'SSL/TLS Add-in for BlueSocket using Secure Transport and OpenSSL'
 
   s.description      = <<-DESC
 SSL/TLS Add-in framework for BlueSocket in Swift using the Swift Package Manager. Works on supported Apple platforms (using Secure Transport) and on Linux (using OpenSSL).
                        DESC
 
-  s.homepage         = 'https://github.com/IBM-Swift/Aphid'
-  s.license          = { :type => 'Apache 2.0' }
-  s.author           = { 'IBM' => 'info@ibm.com' }
-  s.source           = { :git => 'https://github.com/onwardmethod/Aphid.git', :branch => 'podify' }
-  s.social_media_url = 'https://twitter.com/ibm'
+  s.homepage         = 'https://github.com/IBM-Swift/BlueSSLService'
+  s.license          = { :type => 'Apache License, Version 2.0' }
+  s.author           = 'IBM'
+  s.source           = { :git => 'https://github.com/onwardmethod/Aphid.git', :branch => 'podify', :tag => s.version.to_s }
 
+  s.osx.deployment_target = '10.11'
   s.ios.deployment_target = '10.0'
-  s.osx.deployment_target = '10.10'
 
   s.source_files = 'Sources/**/*.swift'
+
+  s.dependency 'BlueSocket'
+
+  s.frameworks = 'Socket'
   
 end
