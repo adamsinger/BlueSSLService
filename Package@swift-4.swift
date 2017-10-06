@@ -22,15 +22,11 @@
 
 import PackageDescription
 
-#if os(Linux) || os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-
 var packageDependencies: [Package.Dependency] = [.package(url: "https://github.com/IBM-Swift/BlueSocket.git", from: "0.12.0")]
 var targetDependencies: [Target.Dependency] = [.byNameItem(name: "Socket")]
 
-#if os(Linux)
 packageDependencies.append(.package(url: "https://github.com/IBM-Swift/OpenSSL.git", from: "0.3.0"))
 targetDependencies.append(.byNameItem(name: "OpenSSL"))
-#endif
 
 let package = Package(
     name: "SSLService",
@@ -56,10 +52,3 @@ let package = Package(
             exclude: ["SSLService.xcodeproj", "README.md", "Sources/Info.plist"]),
         ]
 )
-
-#else
-
-fatalError("Unsupported OS")
-
-#endif
-
